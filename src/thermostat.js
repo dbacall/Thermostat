@@ -40,7 +40,7 @@ Thermostat.prototype.powerSaverOn = function(){
 };
 
 Thermostat.prototype.powerSaverOff = function(){
-  this.powerSaving = true
+  this.powerSaving = false
   this.max = 32
 };
 
