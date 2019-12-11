@@ -102,4 +102,27 @@ describe("Thermostat", function() {
 
   });
 
+  describe('.isUsage', function(){
+    
+    it('returns low usage when below 18', function(){
+      for(i = 0; i < 3; i++){
+        thermostat.down();
+      };
+      expect(thermostat.isUsage()).toEqual("low-usage")
+    });
+
+    it('returns medium usage when between 18 and 25', function(){
+      expect(thermostat.isUsage()).toEqual("medium-usage")
+    });
+
+    it('returns high usage when 25 or higher', function(){
+      thermostat.powerSaverOff()
+      for(i = 0; i < 12; i++){
+        thermostat.up();
+      };
+      expect(thermostat.isUsage()).toEqual("high-usage")
+    });
+
+  });
+
 });

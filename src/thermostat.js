@@ -1,3 +1,5 @@
+'use strict';
+
 function Thermostat() {
   this.temperature = 20;
   this.powerSaving = true
@@ -13,15 +15,23 @@ Thermostat.prototype.currentTemp = function(){
 };
 
 Thermostat.prototype.up = function(){
-  if(this.temperature == this.max){throw new Error("Temperature already at maximum!")}
+  if(this.isMaximumTemp()){throw new Error("Temperature already at maximum!")}
   this.temperature ++
   this._colourSetter();
 };
 
 Thermostat.prototype.down = function(){
-  if (this.temperature == MINIMUM){throw new Error("Temperature already at minimum!")}
+  if (this.isMinimumTemp()){throw new Error("Temperature already at minimum!")}
   this.temperature --
   this._colourSetter();
+};
+
+Thermostat.prototype.isMinimumTemp = function(){
+  return this.temperature == MINIMUM;
+};
+
+Thermostat.prototype.isMaximumTemp = function(){
+  return this.temperature == this.max;
 };
 
 Thermostat.prototype.powerSaverOn = function(){
