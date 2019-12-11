@@ -1,17 +1,18 @@
+function setDisplay() {
+  $("#temp").text(thermostat.currentTemp());
+  $("#temp").css("color", thermostat.usageColour)
+}
 
 
 $( document ).ready(function() {
   
   thermostat = new Thermostat()
-
-  $("#psm").text("PSM On")
-
-  $("#temp").text(thermostat.currentTemp());
+  setDisplay()
 
   $( "#up" ).click(function() {
   
     try {thermostat.up();
-    $("#temp").text(thermostat.currentTemp());
+      setDisplay();
     } catch(err) {
       alert("Temperature already at maximum!")
     }
@@ -20,14 +21,12 @@ $( document ).ready(function() {
   $( "#down" ).click(function(){
 
     try {thermostat.down();
-    $("#temp").text(thermostat.currentTemp());
+      setDisplay();
     } catch(err) {
       alert("Temperature already at minimum!")
     }
 
   });
-
-  
 
   $("#psm-btn").click(function(){
 
@@ -35,13 +34,17 @@ $( document ).ready(function() {
       $("#psm").text("PSM Off")
       $("#psm-btn").text("Turn On Powersaving")
       thermostat.powerSaverOff();
-    } else
-      {$("#psm").text("PSM On")
+    } else {
+      $("#psm").text("PSM On")
       $("#psm-btn").text("Turn Off Powersaving")
-      thermostat.powerSaverOn();}
-
+      thermostat.powerSaverOn();
+      setDisplay();
+    }
   });
 
+  $( "#reset" ).click(function(){
+    thermostat.resetTemp()
+    setDisplay()
 
-
+  });
 });

@@ -36,7 +36,9 @@ Thermostat.prototype.isMaximumTemp = function(){
 
 Thermostat.prototype.powerSaverOn = function(){
   this.powerSaving = true
+  if(this.temperature > 25) this.temperature = 25
   this.max = 25
+  this._colourSetter();
 };
 
 Thermostat.prototype.powerSaverOff = function(){
@@ -46,6 +48,7 @@ Thermostat.prototype.powerSaverOff = function(){
 
 Thermostat.prototype.resetTemp = function(){
   this.temperature = 20
+  this._colourSetter();
 };
 
 Thermostat.prototype.isUsage = function(){

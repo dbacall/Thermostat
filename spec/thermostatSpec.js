@@ -54,6 +54,15 @@ describe("Thermostat", function() {
       expect(function(){thermostat.up()}).toThrowError("Temperature already at maximum!")
     });
 
+    it('should reset the temperature back to 25 if the current temp is >25', function(){
+      thermostat.powerSaverOff()
+      for(i = 0; i < 10; i++){
+        thermostat.up();
+      };
+      thermostat.powerSaverOn()
+      expect(thermostat.currentTemp()).toEqual(25)
+    });
+
   });
 
   describe('.powerSaverOff', function(){
