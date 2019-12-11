@@ -3,7 +3,6 @@ function setDisplay() {
   $("#temp").css("color", thermostat.usageColour)
 }
 
-
 $( document ).ready(function() {
   
   thermostat = new Thermostat()
@@ -46,5 +45,10 @@ $( document ).ready(function() {
     thermostat.resetTemp()
     setDisplay()
 
+  });
+
+  $.getJSON( "http://api.openweathermap.org/data/2.5/weather?q=London&APPID=52aa889a5f746d2407a3fcfd97904b20", function( data ) {
+    
+    $("#weather").text("Temperature Outside: " + (data.main.temp - 273.15) + " Degrees Celsius")
   });
 });
