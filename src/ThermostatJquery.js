@@ -56,12 +56,27 @@ $( document ).ready(function() {
 
   });
 
-  
+  const imageSelector = (temp) => {
+    if (((temp - 273.15)) < 10) {
+      return "https://www.gardendecoration.co.uk/library/original/5312255.jpg";
+    } else {
+      return "http://www.travelblat.com/wp-content/uploads/2014/07/summer-vacation.jpg";
+    }
+  };
+
+  $.get( `http://api.openweathermap.org/data/2.5/weather?q=${city},uk&APPID=52aa889a5f746d2407a3fcfd97904b20`, function( data ) {
+    
+      
+    });
+
+ 
 
   const weatherAPI = (city) => {
     var city = $("#city" ).val()
     $.get( `http://api.openweathermap.org/data/2.5/weather?q=${city},uk&APPID=52aa889a5f746d2407a3fcfd97904b20`, function( data ) {
       $( "#current-temp" ).text("Temperature Outside: " + (Math.round((data.main.temp - 273.15))) + " °C")
+      $( "#main" ).css("background-image", `url(${imageSelector(data.main.temp)})`)
+      console.log(`url(${imageSelector(data.main.temp)})`)
     });
   }
 
@@ -70,6 +85,7 @@ $( document ).ready(function() {
 
     var city = $( "city" ).val()
     weatherAPI(city)
+    console.log(imageSelector())
 
   });
 
