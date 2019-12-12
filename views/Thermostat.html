@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta charset="utf-8">
   <title>Thermostat</title>
 
-
-  <script src="jquery.js"></script>
-  <script src="../src/Thermostat.js"></script>
-  <script src="../src/ThermostatJquery.js"></script>
-  
 </head>
 
 <body>
-
-
 
   <center>
 
@@ -26,12 +20,22 @@
       <button id = 'up'> + </button><br>
       <button id = 'down'> - </button><br>
       <button id = 'psm-btn'>Turn Off Powersaving</button><br>
-      <button id = 'reset'> Reset </button>
-      <h1 id = 'weather'></h1>
+      <button id = 'reset'> Reset </button><br>
+      <select id="city">
+        <option disabled selected>Please choose a city:</option>
+        <option value="London">London</option>
+        <option value="Manchester">Manchester</option>
+        <option value="Liverpool">Liverpool</option>
+      </select>
+      <h1 id = 'current-temp'></h1>
 
     </div>
 
   </center>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <script src="../src/Thermostat.js"></script>
+  <script src="../src/ThermostatJquery.js"></script>
 
 </body>
 
