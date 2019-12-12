@@ -5,29 +5,40 @@
   <meta charset="utf-8">
   <title>Thermostat</title>
 
+  <link rel="stylesheet" type="text/css" href="../public/stylesheets/main.css"></link>
+
 </head>
 
-<body>
+<body id='main'>
 
   <center>
 
-    <h1>Thermostat</h1>
-
     <div>
-      
-      <h1 id = 'temp'></h1>
-      <h1 id = 'psm'>PSM On</h1>
-      <button id = 'up'> + </button><br>
-      <button id = 'down'> - </button><br>
-      <button id = 'psm-btn'>Turn Off Powersaving</button><br>
-      <button id = 'reset'> Reset </button><br>
+
+      <h1>Thermostat</h1>
+
+      <div id = 'console'>
+        
+        <div id = 'progressbar'>
+          <div id = 'in-progressbar'></div>
+        </div>
+        <h1 id = 'temp'></h1>
+        <h1 id = 'psm'>PSM On</h1>
+        <button id = 'down'> - </button>
+        <button id = 'up'> + </button><br>
+        <button id = 'psm-btn'>Turn Off Powersaving</button><br>
+        <button id = 'reset'> Reset </button><br>
+       
+
+      </div>
+
       <select id="city">
-        <option disabled selected>Please choose a city:</option>
-        <option value="London">London</option>
-        <option value="Manchester">Manchester</option>
-        <option value="Liverpool">Liverpool</option>
-      </select>
-      <h1 id = 'current-temp'></h1>
+          <option disabled selected>Please choose a city:</option>
+          <option value="London">London</option>
+          <option value="Manchester">Manchester</option>
+          <option value="Liverpool">Liverpool</option>
+        </select>
+        <h1 id = 'current-temp'></h1>
 
     </div>
 

@@ -1,6 +1,7 @@
 function setDisplay() {
   $("#temp").text(thermostat.currentTemp());
-  $("#temp").css("color", thermostat.usageColour)
+  $("#temp").css("color", thermostat.usageColour);
+  $("#in-progressbar").css("background-color", thermostat.usageColour);
 }
 
 $( document ).ready(function() {
