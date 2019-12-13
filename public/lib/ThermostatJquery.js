@@ -76,7 +76,6 @@ $( document ).ready(function() {
     $.get( `http://api.openweathermap.org/data/2.5/weather?q=${city},uk&APPID=52aa889a5f746d2407a3fcfd97904b20`, function( data ) {
       $( "#current-temp" ).text("Temperature Outside: " + (Math.round((data.main.temp - 273.15))) + " °C")
       $( "#main" ).css("background-image", `url(${imageSelector(data.main.temp)})`)
-      console.log(`url(${imageSelector(data.main.temp)})`)
     });
   }
 

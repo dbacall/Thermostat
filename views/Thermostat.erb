@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>Thermostat</title>
 
-  <link rel="stylesheet" type="text/css" href="../public/stylesheets/main.css"></link>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
   <link href="https://fonts.googleapis.com/css?family=Iceberg&display=swap" rel="stylesheet">
 </head>
 
@@ -31,14 +31,16 @@
           <button id = 'reset' class = 'big-btn'> Reset </button><br>
           
         </div>
-        <select id="city" class = 'big-btn'>
-            <option disabled selected>Please choose a city:</option>
-            <option value="London">London</option>
-            <option value="Manchester">Manchester</option>
-            <option value="Liverpool">Liverpool</option>
-            <option value="Birmingham">Birmingham</option>
-          </select>
-          <h2 id = 'current-temp'>	 </h2>
+          <form method="post" action="/city">
+            <select id="city" class = 'big-btn' name = 'city'>
+              <option disabled selected>Please choose a city:</option>
+              <option value="London">London</option>
+              <option value="Manchester">Manchester</option>
+              <option value="Liverpool">Liverpool</option>
+              <option value="Birmingham">Birmingham</option>
+            </select>
+          </form>
+          <h2 id = 'current-temp'> <%= @city %> </h2>
       </div>
 
       
@@ -48,8 +50,8 @@
   </center>
 
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-  <script src="../src/Thermostat.js"></script>
-  <script src="../src/ThermostatJquery.js"></script>
+  <script src="/lib/thermostat.js"></script>
+  <script src="/lib/ThermostatJquery.js"></script>
 
 </body>
 
