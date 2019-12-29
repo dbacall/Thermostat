@@ -27,7 +27,7 @@ A project that has the functionality of a thermostat, and our first attempt at c
 
 ## How run app
 
-- Fork this repository and clone to your local system, then:
+Fork this repository and clone to your local system, then:
 ```
 $ rackup
 $ open http://localhost:9292
